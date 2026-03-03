@@ -1,9 +1,5 @@
 from __future__ import annotations
 
-import logging
+from python_template.app import app, create_app
 
-logger = logging.getLogger(__name__)
-
-
-def main() -> None:
-    logger.info("Hello from python-template!")
+__all__ = ["app", "create_app"]

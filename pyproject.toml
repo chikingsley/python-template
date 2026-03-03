@@ -1,3 +1,7 @@
+[build-system]
+requires = ["uv_build>=0.10.7,<0.11.0"]
+build-backend = "uv_build"
+
 [project]
 name = "python-template"
 version = "0.1.0"
@@ -8,25 +12,24 @@ authors = [
 ]
 requires-python = ">=3.13"
 dependencies = [
+    "fastapi>=0.135.1",
     "pydantic>=2.12.5",
     "pydantic-settings>=2.13.1",
-    "python-dotenv>=1.2.1",
+    "python-dotenv>=1.2.2",
+    "uvicorn[standard]>=0.41.0",
 ]
-
-[project.scripts]
-python-template = "python_template:main"
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
 
 [dependency-groups]
 dev = [
+    "httpx>=0.28.1",
     "pytest>=9.0.2",
     "pytest-cov>=7.0.0",
-    "ruff>=0.15.2",
-    "ty>=0.0.18",
+    "ruff>=0.15.4",
+    "ty>=0.0.20",
 ]
+
+[project.scripts]
+python-template = "python_template.main:main"
 
 # --------------------------------------------------------------------------- #
 #  Ruff — linting & formatting
